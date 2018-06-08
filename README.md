@@ -1,15 +1,20 @@
 mjolnir._asm.eventtap.event
 ===========================
 
-Functionality to inspect, modify, and create events for [mjolnir_asm.eventtap](https://github.com/asmagill/mjolnir_asm.eventtap) is provided by this module.
+Functionality to inspect, modify, and create events for `mjolnir_asm.eventtap` is provided by this module.
 
 This module is based primarily on code from the previous incarnation of Mjolnir by [Steven Degutis](https://github.com/sdegutis/).
 
 ### Luarocks Install
-This module is not available via luarocks yet... clone the repository (or download the zip file), enter the created directory and do the following:
-
 ~~~bash
-$ luarocks [--tree=mjolnir] make
+$ luarocks [--tree=mjolnir] install mjolnir._asm.eventtap.event
+~~~
+
+### Local Install
+~~~bash
+$ git clone https://github.com/asmagill/mjolnir_asm.ipc
+$ cd mjolnir_asm.ipc/eventtap/event
+$ [PREFIX=/usr/local] make install
 ~~~
 
 ### Require
@@ -62,6 +67,11 @@ eventtap.event:setproperty(prop, value)
 Sets the given property of the given event; prop is one of the values in the mjolnir._asm.eventtap.event.properties table; value is a number defined here: https://developer.apple.com/library/mac/documentation/Carbon/Reference/QuartzEventServicesRef/Reference/reference.html#//apple_ref/c/tdef/CGEventField
 
 ~~~lua
+eventtap.event:getbuttonstate(#) -> bool
+~~~
+Gets the state of the numbered mouse button (0-31) as down (true) or up (false). The left mouse button corresponds to 0, the right to 1, and the center to 2.  The remaining buttons are specified in USB order using the integers 3 to 31.
+
+~~~lua
 eventtap.event.newkeyevent(mods, key, isdown) -> event
 ~~~
 Creates a keyboard event.
@@ -88,7 +98,9 @@ Table for use with `mjolnir._asm.eventtap.new`, with the following keys (and the
     leftmousedown, leftmouseup, leftmousedragged,
     rightmousedown, rightmouseup, rightmousedragged,
     middlemousedown, middlemouseup, middlemousedragged,
-    mousemoved, flagschanged, scrollwheel
+    mousemoved, flagschanged, scrollwheel,
+    tabletpointer, tabletproximity,
+    nullevent, tapdisabledbytimeout, tapdisabledbyuserinput
 
 ~~~lua
 eventtap.event.properties[]

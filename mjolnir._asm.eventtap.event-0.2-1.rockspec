@@ -10,20 +10,20 @@ package = "mjolnir._asm.eventtap.event"
 --    changing the module's source code.
 --
 --    Note: the version must match the version in the filename.
-version = "0.1-1"
+version = "0.2-1"
 
 -- General metadata:
 
-local url = "github.com/asmagill/mjolnir_asm.eventtap.event"
+local url = "github.com/asmagill/mjolnir_asm.ipc"
 local desc = "Functionality to inspect, modify, and create events for mjolnir_asm.eventtap is provided by this module."
 
 -- LuaDist source
 source = {
-  tag = "0.1-1",
+  tag = "0.2-1",
   url = "git://github.com/LuaDist-testing/mjolnir._asm.eventtap.event.git"
 }
 -- Original source
--- source = {url = "git://" .. url}
+-- source = {url = "git://" .. url, dir="mjolnir_asm.ipc/eventtap/event"}
 -- description = {
 --   summary = desc,
 --   detailed = desc,
